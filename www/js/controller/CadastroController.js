@@ -40,6 +40,18 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
      */
     function fecharModal() {
         $scope.modal.hide();
+    }
+
+    /**
+     * Função para obter o dia da semana
+     * em que a atividade está sendo cadastrada.
+     *
+     * @returns {String} contendo o dia da semana
+     * que está sendo cadastrado. [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+     */
+    function getDay() {
+        var data = new Date();
+        return data.toString().split(" ")[0];
     };
 
     /**
@@ -51,7 +63,8 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
             && !_.isUndefined(self.hour)) {
             self.atividades.push({
                 name : self.name,
-                hour : self.hour
+                hour : self.hour,
+                day : getDay()
             });
         }
         clear();
