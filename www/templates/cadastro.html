@@ -1,0 +1,38 @@
+<ion-view ng-controller="CadastroCtrl as ctrl">
+    <ion-content>
+       <div class="row">
+           <button class="button button-float" ng-click="ctrl.adicionarAtividade()">
+               <i class="icon ion-plus"></i>
+           </button>
+       </div>
+        <div class="card"  ng-repeat="atividade in ctrl.atividades">
+            <div class="item item-text-wrap">
+                <p>Name: {{ atividade.name }}</p>
+                <p>Hours: {{ atividade.hour }} hrs</p>
+            </div>
+        </div>
+    </ion-content>
+
+    <script id="cadastrar-atividade.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar>
+            </ion-header-bar>
+            <ion-content>
+                <form ng-submit="ctrl.doneButton()">
+                    <div class="list">
+                        <label class="item item-input">
+                            <span class="input-label">Name *</span>
+                            <input required type="text" ng-model="ctrl.name">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Hours *</span>
+                            <input required type="number" ng-model="ctrl.hour">
+                        </label>
+                    </div>
+                    <button class="button button-full button-balanced" type="submit" >Done</button>
+                    <button class="button button-full button-assertive" ng-click="ctrl.cancelButton()">Cancel</button>
+                </form>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>
