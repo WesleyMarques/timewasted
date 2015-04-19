@@ -23,7 +23,24 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
     self = this;
     // TODO adicionar ao usuário no servidor
     // conjunto de atividades cadastradas
-    self.atividades = [];
+    self.semana = [
+        {
+            day: 'Sunday', atividades: []
+        }, {
+            day: 'Monday', atividades: []
+        }, {
+            day: 'Tuesday ', atividades: []
+        }, {
+            day: 'Wednesday ', atividades: []
+        }, {
+            day: 'Thursday ', atividades: []
+        }, {
+            day: 'Friday ', atividades: []
+        }, {
+            day: 'Saturday', atividades: []
+        }
+    ];
+
     this.name = undefined;
     this.hour = undefined;
 
@@ -55,16 +72,42 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
     };
 
     /**
+     * Função para obter o índice do dia da semana
+     *
+     * @param {@String} dia sigla do dia
+     * @returns {number} o índice do dia da semana.
+     */
+    function getWeek(dia) {
+        switch (dia) {
+            case 'Sun':
+                return 0;
+            case 'Mon':
+                return 1;
+            case 'Tue':
+                return 2;
+            case 'Wed':
+                return 3;
+            case 'Thu':
+                return 4;
+            case 'Fri':
+                return 5;
+            default:
+                return 6;
+        }
+    };
+
+    /**
      * Salva o cadastro de uma nova atividade.
      */
     this.doneButton = function() {
         fecharModal();
         if (!_.isUndefined(self.name)
             && !_.isUndefined(self.hour)) {
-            self.atividades.push({
+            var dia = getDay();
+            self.semana[getWeek(dia)].atividades.push({
                 name : self.name,
                 hour : self.hour,
-                day : getDay()
+                day : dia
             });
         }
         clear();
@@ -84,5 +127,20 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
     this.cancelButton = function() {
         fecharModal();
         clear();
+    };
+
+    /*
+     * if given group is the selected group, deselect it
+     * else, select the given group
+     */
+    $scope.toggleGroup = function(group) {
+        if ($scope.isGroupShown(group)) {
+            $scope.shownGroup = null;
+        } else {
+            $scope.shownGroup = group;
+        }
+    };
+    $scope.isGroupShown = function(group) {
+        return $scope.shownGroup === group;
     };
 });

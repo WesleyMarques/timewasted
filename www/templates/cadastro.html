@@ -5,12 +5,23 @@
                <i class="icon ion-plus"></i>
            </button>
        </div>
-        <div class="card"  ng-repeat="atividade in ctrl.atividades">
-            <div class="item item-text-wrap">
-                <p>Name: {{ atividade.name }}</p>
-                <p>Hours: {{ atividade.hour }} hrs</p>
-            </div>
-        </div>
+       <ion-list>
+           <div ng-repeat="dia in ctrl.semana">
+               <ion-item class="item-stable"
+                         ng-click="toggleGroup(dia)"
+                         ng-class="{active: isGroupShown(dia)}">
+                   <i class="icon" ng-class="isGroupShown(dia) ? 'ion-minus' : 'ion-plus'"></i>
+                   &nbsp;
+                   {{ dia.day }}
+               </ion-item>
+               <div class="card"  ng-show="isGroupShown(dia)"  ng-repeat="atividade in dia.atividades">
+                   <div class="item item-text-wrap">
+                       <p>Name: {{ atividade.name }}</p>
+                       <p>Hours: {{ atividade.hour }} hrs</p>
+                   </div>
+               </div>
+           </div>
+       </ion-list>
     </ion-content>
 
     <script id="cadastrar-atividade.html" type="text/ng-template">
