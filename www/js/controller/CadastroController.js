@@ -7,6 +7,8 @@ var app = angular.module('starter');
  */
 app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
 
+    $scope.urlImage = null;
+
     // Código apenas para o modal de cadastro
     $ionicModal.fromTemplateUrl('cadastrar-atividade.html', {
         scope: $scope,
@@ -22,6 +24,74 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
 
     self = this;
     // TODO adicionar ao usuário no servidor
+
+    //Função para pegar URL da imagem
+    $scope.getUrlImage = function(){
+        if ($scope.imageUri == null) {
+            return "img/icone_camera.jpg";
+        }
+        return $scope.imageUri;
+    };
+
+    $scope.setUrlImage = function(url){
+        $scope.imageUri = url;
+    };
+
+    $scope.getPicture = function(type){
+        if(type === 1){
+            $scope.getPictureFromCamera();
+        }else{
+            $scope.getPictureFromGalery();
+        }
+
+    };
+
+    //Função para captura URL de uma imagem do celular
+    $scope.getPictureFromCamera  = function(){
+        navigator.camera.getPicture(function (imageData) {
+            $scope.setUrlImage("data:image/jpeg;base64," + imageData);
+            document.getElementById("imageId").src = "data:image/jpeg;base64," + imageData;
+            $scope.$apply();
+        }, function () {
+            alert("Nenhuma imagem foi selecionada");
+        }, {
+            mQuality: 100,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            mediaType: Camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false,
+            targetWidth: 250,
+            targetHeight: 250,
+            correctOrientation: true
+        });
+    };
+
+    //Função para captura URL de uma imagem do celular
+    $scope.getPictureFromGalery  = function(){
+        navigator.camera.getPicture(function (imageData) {
+            $scope.setUrlImage("data:image/jpeg;base64," + imageData);
+            document.getElementById("imageId").src = "data:image/jpeg;base64," + imageData;
+            $scope.$apply();
+        }, function () {
+            alert("Nenhuma imagem foi selecionada");
+        }, {
+            mQuality: 100,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            mediaType: Camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false,
+            targetWidth: 250,
+            targetHeight: 250,
+            correctOrientation: true
+        });
+
+    };
+
+
+
+
+
+
     // conjunto de atividades cadastradas
     self.semana = [
         {
