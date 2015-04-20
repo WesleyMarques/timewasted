@@ -18,6 +18,7 @@
                    <div class="item item-text-wrap">
                        <p>Name: {{ atividade.name }}</p>
                        <p>Hours: {{ atividade.hour }} hrs</p>
+                       <p>Priority: {{ atividade.priority }}</p>
                    </div>
                </div>
            </div>
@@ -38,6 +39,10 @@
                         <label class="item item-input">
                             <span class="input-label">Hours *</span>
                             <input required type="number" ng-model="ctrl.hour">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Prioridade *</span>
+                            <input required type="number" ng-model="ctrl.priority" max="5" min="1">
                         </label>
                     </div>
                     <button class="button button-full button-balanced" type="submit" >Done</button>

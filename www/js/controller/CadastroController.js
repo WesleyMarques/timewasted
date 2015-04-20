@@ -5,17 +5,17 @@ var app = angular.module('starter');
  *
  * @author Júlio L.
  */
-app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
+app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
 
     // Código apenas para o modal de cadastro
     $ionicModal.fromTemplateUrl('cadastrar-atividade.html', {
         scope: $scope,
         animation: 'slide-in-up'
-    }).then(function(modal) {
+    }).then(function (modal) {
         $scope.modal = modal
     });
 
-    $scope.$on('$destroy', function() {
+    $scope.$on('$destroy', function () {
         $scope.modal.remove();
     });
     // fim do código do modal
@@ -48,7 +48,7 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
      * Função ao clicar para adicionar uma atividade.
      * Botão floating action
      */
-    this.adicionarAtividade = function() {
+    this.adicionarAtividade = function () {
         $scope.modal.show();
     };
 
@@ -99,15 +99,16 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
     /**
      * Salva o cadastro de uma nova atividade.
      */
-    this.doneButton = function() {
+    this.doneButton = function () {
         fecharModal();
         if (!_.isUndefined(self.name)
-            && !_.isUndefined(self.hour)) {
+            && !_.isUndefined(self.hour) && !_.isUndefined(self.priority)) {
             var dia = getDay();
             self.semana[getWeek(dia)].atividades.push({
-                name : self.name,
-                hour : self.hour,
-                day : dia
+                name: self.name,
+                hour: self.hour,
+                priority: self.priority,
+                day: dia
             });
         }
         clear();
@@ -124,7 +125,7 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
     /**
      *  Função do botão de cancelar.
      */
-    this.cancelButton = function() {
+    this.cancelButton = function () {
         fecharModal();
         clear();
     };
@@ -133,14 +134,14 @@ app.controller('CadastroCtrl', function($scope, $stateParams, $ionicModal) {
      * if given group is the selected group, deselect it
      * else, select the given group
      */
-    $scope.toggleGroup = function(group) {
+    $scope.toggleGroup = function (group) {
         if ($scope.isGroupShown(group)) {
             $scope.shownGroup = null;
         } else {
             $scope.shownGroup = group;
         }
     };
-    $scope.isGroupShown = function(group) {
+    $scope.isGroupShown = function (group) {
         return $scope.shownGroup === group;
     };
 });
