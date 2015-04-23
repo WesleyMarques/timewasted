@@ -1,16 +1,11 @@
 <ion-view ng-controller="CadastroCtrl as ctrl">
-    <ion-content>
-       <div class="row">
-           <button class="button button-float" ng-click="ctrl.adicionarAtividade()">
-               <i class="icon ion-plus"></i>
-           </button>
-       </div>
-       <ion-list>
+    <ion-content
+       <ion-list class="cor">
            <div ng-repeat="dia in ctrl.semana">
                <ion-item class="item-stable"
                          ng-click="toggleGroup(dia)"
                          ng-class="{active: isGroupShown(dia)}">
-                   <i class="icon" ng-class="isGroupShown(dia) ? 'ion-minus' : 'ion-plus'"></i>
+                       <i class="icon" ng-class="isGroupShown(dia) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
                    &nbsp;
                    {{ dia.day }}
                </ion-item>
@@ -23,6 +18,11 @@
                </div>
            </div>
        </ion-list>
+        <div class="row">
+        <button class="button button-float" ng-click="ctrl.adicionarAtividade()" >
+            <i class="icon ion-plus"></i>
+        </button>
+    </div>
     </ion-content>
 
     <script id="cadastrar-atividade.html" type="text/ng-template">

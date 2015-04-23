@@ -1,5 +1,5 @@
 .button-float {
-    background: #ef473a !important;
+    background: #e42112 !important;
     color: white !important;
     z-index: 12 !important;
     border-radius: 50% !important;
@@ -10,6 +10,9 @@
     transition: 0.2s linear !important;
     -webkit-transition-property: -webkit-transform, all !important;
     transition-property: transform, all !important;
+    position: absolute;
+    left: 42%;
+    top:100%;
 }
 
 .button-float:hover {
@@ -17,4 +20,8 @@
     transform: translate3d(0, -0.063em, 0) !important;
     box-shadow: 0 0.250em 0.500em 0 rgba(0, 0, 0, 0.4) !important;
     background: #e42112 !important;
+}
+
+.item-stable{
+    background: black;
 }
