@@ -9,7 +9,6 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
 
     $scope.urlImage = null;
 
-    // Código apenas para o modal de cadastro
     $ionicModal.fromTemplateUrl('cadastrar-atividade.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -20,7 +19,6 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
     $scope.$on('$destroy', function () {
         $scope.modal.remove();
     });
-    // fim do código do modal
 
     self = this;
     // TODO adicionar ao usuário no servidor
