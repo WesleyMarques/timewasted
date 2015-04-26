@@ -1,5 +1,5 @@
 .button-float {
-    background: #e42112 !important;
+    background: #ef473a !important;
     color: white !important;
     z-index: 12 !important;
     border-radius: 50% !important;
@@ -19,9 +19,17 @@
     -webkit-transform: translate3d(0, -0.063em, 0) !important;
     transform: translate3d(0, -0.063em, 0) !important;
     box-shadow: 0 0.250em 0.500em 0 rgba(0, 0, 0, 0.4) !important;
-    background: #e42112 !important;
+    background: #ef473a !important;
 }
 
 .item-stable{
     background: black;
+}
+
+.login-button {
+    background: #ffffff !important;
+    display: block;
+    border: solid;
+    margin-top: 150%;
+    text-align: center;
 }

@@ -5,7 +5,7 @@ var app = angular.module('starter');
  *
  * @author Júlio L.
  */
-app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
+app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, UserService) {
 
     $scope.urlImage = null;
 
@@ -85,33 +85,6 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
 
     };
 
-
-
-
-
-
-    // conjunto de atividades cadastradas
-    self.semana = [
-        {
-            day: 'Sunday', atividades: []
-        }, {
-            day: 'Monday', atividades: []
-        }, {
-            day: 'Tuesday ', atividades: []
-        }, {
-            day: 'Wednesday ', atividades: []
-        }, {
-            day: 'Thursday ', atividades: []
-        }, {
-            day: 'Friday ', atividades: []
-        }, {
-            day: 'Saturday', atividades: []
-        }
-    ];
-
-    this.name = undefined;
-    this.hour = undefined;
-
     /**
      * Função ao clicar para adicionar uma atividade.
      * Botão floating action
@@ -125,61 +98,73 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
      */
     function fecharModal() {
         $scope.modal.hide();
-    }
-
-    /**
-     * Função para obter o dia da semana
-     * em que a atividade está sendo cadastrada.
-     *
-     * @returns {String} contendo o dia da semana
-     * que está sendo cadastrado. [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
-     */
-    function getDay() {
-        var data = new Date();
-        return data.toString().split(" ")[0];
     };
 
-    /**
-     * Função para obter o índice do dia da semana
-     *
-     * @param {@String} dia sigla do dia
-     * @returns {number} o índice do dia da semana.
-     */
-    function getWeek(dia) {
-        switch (dia) {
-            case 'Sun':
-                return 0;
-            case 'Mon':
-                return 1;
-            case 'Tue':
-                return 2;
-            case 'Wed':
-                return 3;
-            case 'Thu':
-                return 4;
-            case 'Fri':
-                return 5;
-            default:
-                return 6;
-        }
-    };
+    self = this;
+    this.name = undefined;
+    this.begin = undefined;
+    this.end = undefined;
+    this.priority = undefined;
+    this.displayDay = true;
+
+    this.atividades = UserService.getAtividadesSemana();
 
     /**
      * Salva o cadastro de uma nova atividade.
      */
     this.doneButton = function () {
-        fecharModal();
-        if (!_.isUndefined(self.name)
-            && !_.isUndefined(self.hour) && !_.isUndefined(self.priority)) {
-            var dia = getDay();
-            self.semana[getWeek(dia)].atividades.push({
-                name: self.name,
-                hour: self.hour,
-                priority: self.priority,
-                day: dia
-            });
+        if (isCadastroValido) {
+            var atividade = {
+                name : self.name,
+                begin : getInitDate().toString(),
+                end : getFinalDate().toString(),
+                priority : self.priority,
+                date : new Date().toString()
+            };
+            UserService.postAtividade(atividade);
+            fecharModal();
+            clear();
         }
-        clear();
+    };
+
+    this.display = function() {
+        if (self.displayDay) {
+            return 'My Day'
+        }
+        return 'My Week';
+    };
+
+    this.changeDisplay = function() {
+        self.displayDay = !self.displayDay;
+    };
+
+    function isCadastroValido() {
+        return !_.isUndefined(self.name)
+            && !_.isUndefined(self.begin)
+            && !_.isUndefined(self.end)
+            && !_.isUndefined(self.priority);
+    };
+
+    function getInitDate() {
+        var date = new Date();
+        var hour = self.begin.getHours();
+        var minutes = self.begin.getMinutes();
+        date.setHours(hour);
+        date.setMinutes(minutes);
+        return date;
+    };
+
+    function getFinalDate() {
+        var date = new Date();
+        var date = new Date();
+        var hour = self.end.getHours();
+        var minutes = self.end.getMinutes();
+        date.setHours(hour);
+        date.setMinutes(minutes);
+        if (self.end < self.begin) {
+            date.setDate(date.getDate() + 1);
+        }
+        return date;
     };
 
     /**
@@ -187,7 +172,16 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
      */
     function clear() {
         self.name = undefined;
-        self.hour = undefined;
+        self.begin = undefined;
+        self.end = undefined;
+        self.priority = undefined;
+    };
+
+    this.verAtividade = function(index) {
+        // TODO ir para uma tela de visualizar
+        // exibir imagem
+        console.log(index);
+        console.log(self.atividades[index]);
     };
 
     /**
@@ -196,6 +190,18 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal) {
     this.cancelButton = function () {
         fecharModal();
         clear();
+    };
+
+    this.formataData = function(data) {
+        var data = data.split(" ");
+
+        var format = "";
+        format += data[2] + "/" + data[1];
+        var hour = data[4].split(":")[0];
+        var min = data[4].split(":")[1];
+        format += " - " + hour + ":" + min;
+
+        return format;
     };
 
     /*

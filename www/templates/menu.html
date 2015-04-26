@@ -8,6 +8,9 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+          <i ng-click="logout()" class="button button-icon ion-android-exit"></i>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
@@ -18,10 +21,6 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          <i class="icon ion-chevron-right"></i>
-          Login
-        </ion-item>
         <ion-item nav-clear menu-close href="#/app/search">
           <i class="icon ion-chevron-right"></i>
           Search
@@ -29,10 +28,6 @@
         <ion-item nav-clear menu-close href="#/app/browse">
           <i class="icon ion-chevron-right"></i>
           Browse
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          <i class="icon ion-chevron-right"></i>
-          Playlists
         </ion-item>
       </ion-list>
     </ion-content>
