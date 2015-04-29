@@ -3,9 +3,9 @@ var app = angular.module('starter');
 /**
  * Controller para tela inicial de cadastro de atividades
  *
- * @author Júlio L.
+ * @author Julio L.
  */
-app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, UserService) {
+app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, UserService, $state) {
 
     $scope.urlImage = null;
 
@@ -182,6 +182,9 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
         // exibir imagem
         console.log(index);
         console.log(self.atividades[index]);
+        $stateParams.idAtividade = index;
+        $state.go('view');
+        // mudar o estado
     };
 
     /**

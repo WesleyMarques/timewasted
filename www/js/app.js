@@ -35,6 +35,12 @@ angular.module('starter', ['ionic', 'firebase'])
     controller: 'LoginController'
   })
 
+          .state('view', {
+            url: "/view/:idAtividade",
+            templateUrl : "templates/view.html",
+            controller: 'ViewController'
+          })
+
   .state('app.cadastro', {
     url: "/cadastro",
     views: {

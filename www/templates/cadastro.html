@@ -1,23 +1,26 @@
 <ion-view ng-controller="CadastroCtrl as ctrl">
     <ion-content
-       <ion-list>
-           <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
-               {{ ctrl.display() }}
-           </button>
-            <div ng-if="ctrl.displayDay" class="card"  ng-repeat="atividade in ctrl.atividades">
-                <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
-                    <p>Name: {{ atividade.name }}</p>
-                    <p>Begin: {{ ctrl.formataData(atividade.begin) }}</p>
-                    <p>End: {{ ctrl.formataData(atividade.end) }}</p>
-                    <p>Priority: {{ atividade.priority }}</p>
-                </div>
+    <ion-list>
+        <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
+            {{ ctrl.display() }}
+        </button>
+        <div ng-if="ctrl.displayDay" class="card" ng-repeat="atividade in ctrl.atividades">
+            <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
+                <p>Name: {{ atividade.name }}</p>
+
+                <p>Begin: {{ ctrl.formataData(atividade.begin) }}</p>
+
+                <p>End: {{ ctrl.formataData(atividade.end) }}</p>
+
+                <p>Priority: {{ atividade.priority }}</p>
             </div>
-       </ion-list>
-        <div class="row">
-            <button class="button button-float" ng-click="ctrl.adicionarAtividade()" >
-                <i class="icon ion-plus"></i>
-            </button>
         </div>
+    </ion-list>
+    <div class="row">
+        <button class="button button-float" ng-click="ctrl.adicionarAtividade()">
+            <i class="icon ion-plus"></i>
+        </button>
+    </div>
     </ion-content>
 
     <script id="cadastrar-atividade.html" type="text/ng-template">
@@ -43,17 +46,22 @@
                             <span class="input-label">Prioridade *</span>
                             <input required type="number" ng-model="ctrl.priority" max="5" min="1">
                         </label>
+
                         <div style="margin-top: 15px;width: 100%;text-align: center;position: relative">
                             <img id="imageId" src="{{getUrlImage();}}" width="45%">
-                            <div ng-show="getUrlImage() === 'img/icone_camera.jpg'" style="background-color: rgba(255, 255, 255, 0.9);position: absolute;margin-left: 20%;margin-top: -15%;width: 60%;font-size: 30px;vertical-align: middle">
-                                <i class="icon ion-camera" ng-click="getPicture(1);"></i> <span style="font-size: 10px">or</span> <i class="icon ion-images" ng-click="getPicture(0);"></i>
+
+                            <div ng-show="getUrlImage() === 'img/icone_camera.jpg'"
+                                 style="background-color: rgba(255, 255, 255, 0.9);position: absolute;margin-left: 20%;margin-top: -15%;width: 60%;font-size: 30px;vertical-align: middle">
+                                <i class="icon ion-camera" ng-click="getPicture(1);"></i> <span style="font-size: 10px">or</span>
+                                <i class="icon ion-images" ng-click="getPicture(0);"></i>
                             </div>
-                            <div ng-show="getUrlImage() != 'img/icone_camera.jpg'" style="position: absolute;margin-left: 65%;margin-top: -50%;font-size: 25px;color: red">
+                            <div ng-show="getUrlImage() != 'img/icone_camera.jpg'"
+                                 style="position: absolute;margin-left: 65%;margin-top: -50%;font-size: 25px;color: red">
                                 <i class="icon ion-close-circled" ng-click="setUrlImage(null);"></i>
                             </div>
                         </div>
                     </div>
-                    <button class="button button-full button-balanced" type="submit" >Done</button>
+                    <button class="button button-full button-balanced" type="submit">Done</button>
                     <button class="button button-full button-assertive" ng-click="ctrl.cancelButton()">Cancel</button>
                 </form>
             </ion-content>
