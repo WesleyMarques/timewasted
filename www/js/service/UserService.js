@@ -17,12 +17,11 @@ app.service('UserService', function($state, $rootScope, $cacheFactory, $firebase
         return $firebaseArray(new Firebase(get));
     };
 
-    this.postAtividade = function(atividade, imageData) {
+    this.postAtividade = function(atividade) {
         var id = this.cache.get('user').google.id;
         var post = this.url + "/" + id + "/activity";
         var api = new Firebase(post);
         api.push(atividade);
-        api.$add({data:imageData,created: (new Date().getTime())});
     };
 
 });

@@ -125,9 +125,10 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
                 begin : getInitDate().toString(),
                 end : getFinalDate().toString(),
                 priority : self.priority,
-                date : new Date().toString()
+                date : new Date().toString(),
+                image: $scope.getUrlImage()
             };
-            UserService.postAtividade(atividade,$scope.getUrlImage());
+            UserService.postAtividade(atividade);
             fecharModal();
             clear();
         }
