@@ -21,9 +21,9 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     });
 
     self = this;
-    // TODO adicionar ao usu·rio no servidor
+    // TODO adicionar ao usu√°rio no servidor
 
-    //FunÁ„o para pegar URL da imagem
+    //Fun√ß√£o para pegar URL da imagem
     $scope.getUrlImage = function(){
         if ($scope.imageUri == null) {
             return "img/icone_camera.jpg";
@@ -44,7 +44,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
 
     };
 
-    //FunÁ„o para captura URL de uma imagem do celular
+    //Fun√ß√£o para captura URL de uma imagem do celular
     $scope.getPictureFromCamera  = function(){
         navigator.camera.getPicture(function (imageData) {
             $scope.setUrlImage("data:image/jpeg;base64," + imageData);
@@ -67,7 +67,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
         });
     };
 
-    //FunÁ„o para captura URL de uma imagem do celular
+    //Fun√ß√£o para captura URL de uma imagem do celular
     $scope.getPictureFromGalery  = function(){
         navigator.camera.getPicture(function (imageData) {
             $scope.setUrlImage("data:image/jpeg;base64," + imageData);
@@ -92,15 +92,15 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     };
 
     /**
-     * FunÁ„o ao clicar para adicionar uma atividade.
-     * Bot„o floating action
+     * Fun√ß√£o ao clicar para adicionar uma atividade.
+     * Bot√£o floating action
      */
     this.adicionarAtividade = function () {
         $scope.modal.show();
     };
 
     /**
-     * FunÁ„o para esconder o modal
+     * Fun√ß√£o para esconder o modal
      */
     function fecharModal() {
         $scope.modal.hide();
@@ -175,7 +175,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     };
 
     /**
-     * FunÁ„o para limpar os campos do controller apÛs o cadastro.
+     * Fun√ß√£o para limpar os campos do controller ap√≥s o cadastro.
      */
     function clear() {
         self.name = undefined;
@@ -190,7 +190,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     };
 
     /**
-     *  FunÁ„o do bot„o de cancelar.
+     *  Fun√ß√£o do bot√£o de cancelar.
      */
     this.cancelButton = function () {
         fecharModal();
