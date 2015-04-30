@@ -1,5 +1,20 @@
+<<<<<<< HEAD
 <ion-view ng-controller="CadastroController as ctrl">
     <ion-content>
+       <ion-list>
+           <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
+               {{ ctrl.display() }}
+           </button>
+            <div ng-if="ctrl.displayDay" class="card"  ng-repeat="atividade in ctrl.atividades">
+                <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
+                    <p>Name: {{ atividade.name }}</p>
+                    <p>Begin: {{ ctrl.formataData(atividade.begin) }}</p>
+                    <p>End: {{ ctrl.formataData(atividade.end) }}</p>
+                    <p>Priority: {{ atividade.priority }}</p>
+                </div>
+=======
+<ion-view ng-controller="CadastroCtrl as ctrl">
+    <ion-content
     <ion-list>
         <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
             {{ ctrl.display() }}
@@ -13,6 +28,7 @@
                 <p>End: {{ ctrl.formataData(atividade.end) }}</p>
 
                 <p>Priority: {{ atividade.priority }}</p>
+>>>>>>> 2016c37d7483880793f17801fc3a7f107a7361a8
             </div>
         </div>
     </ion-list>

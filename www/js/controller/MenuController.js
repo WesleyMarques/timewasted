@@ -1,4 +1,3 @@
-var app = angular.module('starter');
 
 app.controller('MenuController', function($scope, $state, UserService) {
 

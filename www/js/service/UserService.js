@@ -1,4 +1,3 @@
-var app = angular.module('starter');
 
 app.service('UserService', function($state, $rootScope, $firebase, $firebaseArray, $window) {
 

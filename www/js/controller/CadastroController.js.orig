@@ -5,7 +5,11 @@
  *
  * @author Julio L.
  */
+<<<<<<< HEAD
 app.controller('CadastroController', function ($scope, $state, $stateParams, $ionicModal, UserService) {
+=======
+app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, UserService, $state) {
+>>>>>>> 2016c37d7483880793f17801fc3a7f107a7361a8
 
     $scope.urlImage = null;
 
@@ -125,8 +129,12 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
                 begin : getInitDate(),
                 end : getFinalDate(),
                 priority : self.priority,
+<<<<<<< HEAD
                 date : new Date().getTime()
+=======
+                date : new Date().toString(),
                 image: $scope.getUrlImage()
+>>>>>>> 2016c37d7483880793f17801fc3a7f107a7361a8
             };
             UserService.postAtividade(atividade);
             fecharModal();
@@ -185,8 +193,18 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     };
 
     this.verAtividade = function(index) {
+<<<<<<< HEAD
         var id = self.atividades[index].$id;
         $state.go("app.view", {idActivity : id});
+=======
+        // TODO ir para uma tela de visualizar
+        // exibir imagem
+        console.log(index);
+        console.log(self.atividades[index]);
+        $stateParams.idAtividade = index;
+        $state.go('view');
+        // mudar o estado
+>>>>>>> 2016c37d7483880793f17801fc3a7f107a7361a8
     };
 
     /**
