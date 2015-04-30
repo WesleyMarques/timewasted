@@ -67,11 +67,11 @@
                 }
             })
 
-            .state('app.grafico', {
-                url: "/grafico",
+            .state('app.historia', {
+                url: "/historia",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/grafico.html"
+                        templateUrl: "templates/historia.html"
                     }
                 }
             })

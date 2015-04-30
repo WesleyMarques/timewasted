@@ -4,7 +4,7 @@ var app = angular.module('starter');
  * Created by Gustavo on 29/04/2015.
  */
 
-app.controller('GraficoController', function($scope, UserService) {
+app.controller('HistoriaController', function($scope, UserService) {
 
     self = this;
     atividades = UserService.getAtividadesSemana();
