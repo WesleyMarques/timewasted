@@ -4,7 +4,7 @@ var app = angular.module('starter');
  * Created by Gustavo on 29/04/2015.
  */
 
-app.controller('GraficoController', function($scope) {
+app.controller('GraficoController', function($scope, UserService) {
 
     self = this;
     atividades = UserService.getAtividadesSemana();
@@ -13,10 +13,9 @@ app.controller('GraficoController', function($scope) {
     atividades.$loaded().then(function (array) {
         array.forEach(function (entry) {
                 //console.log(entry);
+                console.log(json);
                 difTime = weeksAgo(Date.parse(entry.begin));
                 if (difTime < 3) {
-                    console.log(Date.parse(entry.end));
-                    console.log(Date.parse(entry.begin));
                     timeUsed = ((Date.parse(entry.end) - Date.parse(entry.begin))/3600000).toFixed(2);
                     console.log(timeUsed);
                     //if(!json.hasOwnProperty(array[entry].name)){

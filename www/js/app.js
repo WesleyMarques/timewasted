@@ -6,7 +6,7 @@
 (function () {
 
 
-    var starter = angular.module('starter', ['ionic', 'firebase', 'app']);
+    var starter = angular.module('starter', ['ionic', 'firebase', 'app', 'highcharts-ng']);
 
     starter.run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
