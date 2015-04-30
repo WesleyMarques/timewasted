@@ -8,27 +8,37 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+          <i ng-click="logout()" class="button button-icon ion-android-exit"></i>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Menu</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login
+        <ion-item nav-clear menu-close href="#/app/cadastro">
+          <i class="icon ion-home"></i>
+          Home
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
-          Search
+        <ion-item nav-clear menu-close href="#/app/acompanhamento">
+          <i class="icon ion-ios-pie"></i>
+          See
         </ion-item>
+        <ion-item nav-clear menu-close href="#/app/historico">
+          <i class="icon ion-document-text  "></i>
+          History
+          <ion-item nav-clear menu-close href="#/app/grafico">
+            <i class="icon ion-chevron-right"></i>
+            Grafico
+          </ion-item>
         <ion-item nav-clear menu-close href="#/app/browse">
+          <i class="icon ion-chevron-right"></i>
           Browse
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
         </ion-item>
       </ion-list>
     </ion-content>

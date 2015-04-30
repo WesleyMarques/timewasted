@@ -10,11 +10,65 @@
     transition: 0.2s linear !important;
     -webkit-transition-property: -webkit-transform, all !important;
     transition-property: transform, all !important;
+    position: absolute;
+    left: 42%;
+    top:100%;
 }
 
 .button-float:hover {
     -webkit-transform: translate3d(0, -0.063em, 0) !important;
     transform: translate3d(0, -0.063em, 0) !important;
     box-shadow: 0 0.250em 0.500em 0 rgba(0, 0, 0, 0.4) !important;
-    background: #e42112 !important;
+    background: #ef473a !important;
+}
+
+.item-stable{
+    background: black;
+}
+
+.login {
+    background-image: url("../img/bitmap.png");
+    background-size: cover;
+}
+
+.login-button {
+    display: block;
+    margin-left: 22.5%;
+    border: solid;
+    text-align: center;
+    margin-top: 140%;
+    position: absolute;
+}
+
+#customBtn {
+    display: inline-block;
+    background: #dd4b39;
+    color: white;
+    width: 165px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+#customBtn:hover {
+    background: #e74b37;
+    cursor: hand;
+}
+span.label {
+    font-weight: bold;
+}
+span.icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-right: #bb3f30 1px solid;
+}
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto',arial,sans-serif;
 }

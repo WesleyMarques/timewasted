@@ -1,0 +1,16 @@
+exclude_paths:
+- hooks/*
+- plugins/*
+- resources/*
+- scss/*
+- www/lib/*
+- .bowerrc
+- .codeclimate.yml
+- .gitignore
+- .travis.yml
+- bower.json
+- config.xml
+- gulpfile.js
+- ionic.project
+- LICENSE
+- package.json
