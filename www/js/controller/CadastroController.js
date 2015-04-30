@@ -5,7 +5,7 @@ var app = angular.module('starter');
  *
  * @author Júlio L.
  */
-app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, UserService) {
+app.controller('CadastroController', function ($scope, $state, $stateParams, $ionicModal, UserService) {
 
     $scope.urlImage = null;
 
@@ -116,10 +116,10 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
         if (isCadastroValido) {
             var atividade = {
                 name : self.name,
-                begin : getInitDate().toString(),
-                end : getFinalDate().toString(),
+                begin : getInitDate(),
+                end : getFinalDate(),
                 priority : self.priority,
-                date : new Date().toString()
+                date : new Date().getTime()
             };
             UserService.postAtividade(atividade);
             fecharModal();
@@ -151,7 +151,7 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
         var minutes = self.begin.getMinutes();
         date.setHours(hour);
         date.setMinutes(minutes);
-        return date;
+        return date.getTime();
     };
 
     function getFinalDate() {
@@ -164,7 +164,7 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
         if (self.end < self.begin) {
             date.setDate(date.getDate() + 1);
         }
-        return date;
+        return date.getTime();
     };
 
     /**
@@ -178,10 +178,8 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
     };
 
     this.verAtividade = function(index) {
-        // TODO ir para uma tela de visualizar
-        // exibir imagem
-        console.log(index);
-        console.log(self.atividades[index]);
+        var id = self.atividades[index].$id;
+        $state.go("app.view", {idActivity : id});
     };
 
     /**
@@ -193,6 +191,7 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
     };
 
     this.formataData = function(data) {
+        var data = new Date(Number(data)).toString();
         var data = data.split(" ");
 
         var format = "";

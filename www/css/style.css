@@ -26,10 +26,15 @@
     background: black;
 }
 
+.login {
+    background-image: url("../img/bitmap.png");
+    background-size: cover;
+}
+
 .login-button {
     background: #ffffff !important;
     display: block;
     border: solid;
-    margin-top: 150%;
     text-align: center;
+    margin-top: 140%;
 }
