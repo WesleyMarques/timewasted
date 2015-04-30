@@ -125,7 +125,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
                 begin : getInitDate(),
                 end : getFinalDate(),
                 priority : self.priority,
-                date : new Date().getTime()
+                date : new Date().getTime(),
                 image: $scope.getUrlImage()
             };
             UserService.postAtividade(atividade);
