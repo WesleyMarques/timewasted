@@ -38,25 +38,25 @@
                 controller: 'LoginController'
             })
 
-  .state('app.acompanhamento', {
-    url: "/acompanhamento",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/acompanhamento.html",
-        controller: 'AcompanhamentoController'
-      }
-    }
-  })
+            .state('app.acompanhamento', {
+                url: "/acompanhamento",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/acompanhamento.html",
+                        controller: 'AcompanhamentoController'
+                    }
+                }
+            })
 
-  .state('app.view', {
-    url: "/view/{idActivity}",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/view.html",
-        controller: 'ViewController'
-      }
-    }
-  })
+            .state('app.view', {
+                url: "/view/{idActivity}",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/view.html",
+                        controller: 'ViewController'
+                    }
+                }
+            })
 
 
             .state('app.cadastro', {
