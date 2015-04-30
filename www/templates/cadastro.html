@@ -1,4 +1,5 @@
 <ion-view ng-controller="CadastroController as ctrl">
+    <meta charset="UTF-8">
     <ion-content>
     <ion-list>
         <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
@@ -6,13 +7,13 @@
         </button>
         <div ng-if="ctrl.displayDay" class="card" ng-repeat="atividade in ctrl.atividades">
             <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
-                <p>Name: {{ atividade.name }}</p>
+                <p>Nome: {{ atividade.name }}</p>
 
-                <p>Begin: {{ ctrl.formataData(atividade.begin) }}</p>
+                <p>Inicio: {{ ctrl.formataData(atividade.begin) }}</p>
 
-                <p>End: {{ ctrl.formataData(atividade.end) }}</p>
+                <p>Fim: {{ ctrl.formataData(atividade.end) }}</p>
 
-                <p>Priority: {{ atividade.priority }}</p>
+                <p>Prioridade: {{ atividade.priority }}</p>
             </div>
         </div>
     </ion-list>
@@ -31,16 +32,16 @@
                 <form ng-submit="ctrl.doneButton()">
                     <div class="list">
                         <label class="item item-input">
-                            <span class="input-label">Name *</span>
+                            <span class="input-label">Nome *</span>
                             <input required type="text" ng-model="ctrl.name">
                         </label>
                         <label class="item item-input">
-                            <span class="input-label">Begin *</span>
-                            <input required type="time" ng-model="ctrl.begin">
+                            <span class="input-label">Início *</span>
+                            <input required step="60" type="time" ng-model="ctrl.begin">
                         </label>
                         <label class="item item-input">
-                            <span class="input-label">End *</span>
-                            <input required type="time" ng-model="ctrl.end">
+                            <span class="input-label">Fim *</span>
+                            <input required step="60" type="time" ng-model="ctrl.end">
                         </label>
                         <label class="item item-input">
                             <span class="input-label">Prioridade *</span>

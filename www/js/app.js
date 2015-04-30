@@ -68,10 +68,11 @@
             })
 
             .state('app.historia', {
-                url: "/historia",
+                url: "/historico",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/historia.html"
+                        templateUrl: "templates/historia.html",
+                        controller : "HistoricoController"
                     }
                 }
             })
