@@ -1,8 +1,8 @@
 
 /**
- * Controller para login da aplicação.
+ * Controller para login da aplicaÃ§Ã£o.
  *
- * @author Júlio L.
+ * @author JÃºlio L.
  */
 app.controller('LoginController', function ($scope, $firebase, $state, UserService) {
 
