@@ -5,50 +5,53 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'firebase'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
+    .run(function ($ionicPlatform) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
+        });
+    })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
 
-  .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'MenuController'
-  })
+            .state('app', {
+                url: "/app",
+                abstract: true,
+                templateUrl: "templates/menu.html",
+                controller: 'MenuController'
+            })
 
-  .state('login', {
-    url: "/login",
-    templateUrl: "templates/login.html",
-    controller: 'LoginController'
-  })
+            .state('login', {
+                url: "/login",
+                templateUrl: "templates/login.html",
+                controller: 'LoginController'
+            })
 
-          .state('view', {
-            url: "/view/:idAtividade",
-            templateUrl : "templates/view.html",
-            controller: 'ViewController'
-          })
+            .state('view', {
+                url: "/view/:idAtividade",
+                templateUrl: "templates/view.html",
+                controller: 'ViewController'
+            })
 
-  .state('app.cadastro', {
-    url: "/cadastro",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/cadastro.html"
-      }
-    }
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('login');
-});
+            .state('app.cadastro', {
+                url: "/cadastro",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/cadastro.html"
+                    }
+                }
+            });
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('login');
+    });
+
+
+var app = angular.module('starter');

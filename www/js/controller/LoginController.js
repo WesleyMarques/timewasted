@@ -1,4 +1,3 @@
-var app = angular.module('starter');
 
 /**
  * Controller para login da aplicação.
