@@ -4,7 +4,7 @@ var app = angular.module('starter');
  * Created by Gustavo on 29/04/2015.
  */
 
-app.controller('AppCtrl', function($scope) {
+app.controller('GraficoController', function($scope) {
 
         $scope.chartConfig = {
             options: {

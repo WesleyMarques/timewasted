@@ -58,12 +58,21 @@
                 }
             })
 
-
             .state('app.cadastro', {
                 url: "/cadastro",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/cadastro.html"
+                    }
+                }
+            })
+
+            .state('app.historico', {
+                url: "/historico",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/historico.html",
+                        controller: "GraficoController"
                     }
                 }
             });
