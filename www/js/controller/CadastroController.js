@@ -57,9 +57,12 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.CAMERA,
             mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.JPEG,
+            allowEdit : true,
             saveToPhotoAlbum: false,
-            targetWidth: 250,
-            targetHeight: 250,
+            targetWidth: 400,
+            targetHeight: 400,
+            popoverOptions: CameraPopoverOptions,
             correctOrientation: true
         });
     };
@@ -75,11 +78,14 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
         }, {
             mQuality: 100,
             destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            sourceType: Camera.PictureSourceType.CAMERA,
             mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.JPEG,
+            allowEdit : true,
             saveToPhotoAlbum: false,
-            targetWidth: 250,
-            targetHeight: 250,
+            targetWidth: 400,
+            targetHeight: 400,
+            popoverOptions: CameraPopoverOptions,
             correctOrientation: true
         });
 
@@ -121,7 +127,7 @@ app.controller('CadastroCtrl', function ($scope, $stateParams, $ionicModal, User
                 priority : self.priority,
                 date : new Date().toString()
             };
-            UserService.postAtividade(atividade);
+            UserService.postAtividade(atividade,$scope.getUrlImage());
             fecharModal();
             clear();
         }

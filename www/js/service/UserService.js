@@ -1,4 +1,3 @@
-var app = angular.module('starter');
 
 app.service('UserService', function($state, $rootScope, $cacheFactory, $firebase, $firebaseArray) {
 
@@ -18,11 +17,12 @@ app.service('UserService', function($state, $rootScope, $cacheFactory, $firebase
         return $firebaseArray(new Firebase(get));
     };
 
-    this.postAtividade = function(atividade) {
+    this.postAtividade = function(atividade, imageData) {
         var id = this.cache.get('user').google.id;
         var post = this.url + "/" + id + "/activity";
         var api = new Firebase(post);
         api.push(atividade);
+        api.$add({data:imageData,created: (new Date().getTime())});
     };
 
 });
