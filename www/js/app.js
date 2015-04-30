@@ -67,15 +67,14 @@
                 }
             })
 
-            .state('app.historico', {
-                url: "/historico",
+            .state('app.grafico', {
+                url: "/grafico",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/historico.html",
-                        controller: "GraficoController"
+                        templateUrl: "templates/grafico.html"
                     }
                 }
-            });
+            })
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('login');
     });

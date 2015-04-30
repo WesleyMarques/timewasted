@@ -198,14 +198,9 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     };
 
     this.formataData = function(data) {
-        var data = new Date(Number(data)).toString();
-        var data = data.split(" ");
-
-        var format = "";
-        format += data[2] + "/" + data[1];
-        var hour = data[4].split(":")[0];
-        var min = data[4].split(":")[1];
-        format += " - " + hour + ":" + min;
+        var data = new Date(Date.parse(data));
+        var format = data.getDate() + "/" + ("0" + (data.getMonth() + 1)).slice(-2) + "/" + data.getFullYear() + " - " +
+            ("0" + (data.getHours())).slice(-2) + ":" + ("0" + (data.getMinutes())).slice(-2);
 
         return format;
     };
