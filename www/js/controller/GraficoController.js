@@ -14,9 +14,9 @@ app.controller('GraficoController', function($scope, UserService) {
         array.forEach(function (entry) {
                 //console.log(entry);
                 console.log(json);
-                difTime = weeksAgo(Date.parse(entry.begin));
+                difTime = weeksAgo(new Date(entry.begin));
                 if (difTime < 3) {
-                    timeUsed = ((Date.parse(entry.end) - Date.parse(entry.begin))/3600000).toFixed(2);
+                    timeUsed = Number(((new Date(entry.end) - new Date(entry.begin))/3600000).toFixed(2));
                     console.log(timeUsed);
                     //if(!json.hasOwnProperty(array[entry].name)){
                     if (difTime==2) {
