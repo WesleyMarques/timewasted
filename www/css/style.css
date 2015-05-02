@@ -31,16 +31,25 @@
     background-size: cover;
 }
 
+.login-button {
+    display: block;
+    margin-left: 20.5%;
+    border: solid;
+    text-align: center;
+    margin-top: 140%;
+    position: absolute;
+}
+
 #customBtn {
     display: inline-block;
-    background: #dd4b39;
-    color: white;
-    width: 165px;
+    background: white;
+    color: #dd4b39;
+    width: 180px;
     border-radius: 5px;
     white-space: nowrap;
 }
 #customBtn:hover {
-    background: #e74b37;
+    background: white;
     cursor: hand;
 }
 span.label {
