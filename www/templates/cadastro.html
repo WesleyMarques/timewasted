@@ -1,28 +1,26 @@
 <ion-view ng-controller="CadastroController as ctrl">
     <meta charset="UTF-8">
     <ion-content>
-    <ion-list>
-        <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
-            {{ ctrl.display() }}
-        </button>
-        <div ng-if="ctrl.displayDay" class="card" ng-repeat="atividade in ctrl.atividades">
-            <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
-                <p>Nome: {{ atividade.name }}</p>
+        <ion-list>
+            <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
+                {{ ctrl.display() }}
+            </button>
+            <div ng-if="ctrl.displayDay" class="card" ng-repeat="atividade in ctrl.atividades">
+                <div class="item item-text-wrap" ng-click="ctrl.verAtividade($index)">
+                    <p>Nome: {{ atividade.name }}</p>
 
-                <p>Inicio: {{ ctrl.formataData(atividade.begin) }}</p>
+                    <p>Inicio: {{ ctrl.formataData(atividade.begin) }}</p>
 
-                <p>Fim: {{ ctrl.formataData(atividade.end) }}</p>
+                    <p>Fim: {{ ctrl.formataData(atividade.end) }}</p>
 
-                <p>Prioridade: {{ atividade.priority }}</p>
+                    <p>Prioridade: {{ atividade.priority }}</p>
+                </div>
             </div>
-        </div>
-    </ion-list>
-    <div class="row">
-        <button class="button button-float" ng-click="ctrl.adicionarAtividade()">
-            <i class="icon ion-plus"></i>
-        </button>
-    </div>
+        </ion-list>
     </ion-content>
+    <button class="button button-float" ng-click="ctrl.adicionarAtividade()">
+        <i class="icon ion-plus"></i>
+    </button>
 
     <script id="cadastrar-atividade.html" type="text/ng-template">
         <div class="modal">
@@ -36,7 +34,7 @@
                             <input required type="text" ng-model="ctrl.name">
                         </label>
                         <label class="item item-input">
-                            <span class="input-label">Início *</span>
+                            <span class="input-label">Inicio *</span>
                             <input required step="60" type="time" ng-model="ctrl.begin">
                         </label>
                         <label class="item item-input">

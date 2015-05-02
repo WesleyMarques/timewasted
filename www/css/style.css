@@ -11,8 +11,8 @@
     -webkit-transition-property: -webkit-transform, all !important;
     transition-property: transform, all !important;
     position: absolute;
-    left: 42%;
-    top:100%;
+    left: 45%;
+    top: 88%;
 }
 
 .button-float:hover {
@@ -29,15 +29,6 @@
 .login {
     background-image: url("../img/bitmap.png");
     background-size: cover;
-}
-
-.login-button {
-    display: block;
-    margin-left: 22.5%;
-    border: solid;
-    text-align: center;
-    margin-top: 140%;
-    position: absolute;
 }
 
 #customBtn {
