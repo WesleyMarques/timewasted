@@ -47,19 +47,20 @@
                             <input required type="number" ng-model="ctrl.priority" max="5" min="1">
                         </label>
                         <label class="item item-radio">
-                            <input type="radio" name="group1" checked>
+                            <input type="radio" ng-model="ctrl.category" name="group1" value="lazer" checked>
                             <div class="item-content">
                                 Lazer
                             </div>
                             <i class="radio-icon ion-checkmark"></i>
                         </label>
                         <label class="item item-radio">
-                            <input type="radio" name="group1" value="radio2">
+                            <input type="radio" ng-model="ctrl.category" name="group1" value="trabalho">
                             <div class="item-content">
                                 Trabalho
                             </div>
                             <i class="radio-icon ion-checkmark"></i>
                         </label>
+
                         <div style="margin-top: 15px;width: 100%;text-align: center;position: relative">
                             <img id="imageId" src="{{getUrlImage();}}" width="45%">
 

@@ -112,6 +112,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     this.end = undefined;
     this.priority = undefined;
     this.displayDay = true;
+    this.category = "lazer";
 
     this.atividades = UserService.getAtividadesSemana();
 
@@ -126,7 +127,8 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
                 end : getFinalDate(),
                 priority : self.priority,
                 date : new Date().getTime(),
-                image: $scope.getUrlImage()
+                image: $scope.getUrlImage(),
+                category: self.category
             };
             UserService.postAtividade(atividade);
             fecharModal();
@@ -149,7 +151,8 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
         return !_.isUndefined(self.name)
             && !_.isUndefined(self.begin)
             && !_.isUndefined(self.end)
-            && !_.isUndefined(self.priority);
+            && !_.isUndefined(self.priority)
+            && !_.isUndefined(self.category);
     };
 
     function getInitDate() {
