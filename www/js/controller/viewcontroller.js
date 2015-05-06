@@ -5,10 +5,15 @@ var app = angular.module('starter');
  *
  * @author Júlio L.
  */
-app.controller('ViewController', function ($scope, $stateParams, UserService) {
-    $scope.atividade = undefined;
+app.controller('ViewController', function ($scope, $stateParams, UserService, $firebaseObject) {
 
 
-    $scope.atidade = UserService.getAtividade($stateParams.idActivity);
+    this.url = 'https://timewasted.firebaseio.com/api/user'
+        + "/" + UserService.getId() + "/activity/" + $stateParams.idActivity ;
+    console.log(this.url);
+    var ref = new Firebase(this.url);
+    var sycn = $firebaseObject(ref);
+
+    sycn.$bindTo($scope, "atividade");
 
 });

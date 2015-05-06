@@ -21,7 +21,7 @@
     background: #ef473a !important;
 }
 
-.item-stable{
+.item-stable {
     background: black;
 }
 
@@ -47,13 +47,16 @@
     border-radius: 5px;
     white-space: nowrap;
 }
+
 #customBtn:hover {
     background: white;
     cursor: hand;
 }
+
 span.label {
     font-weight: bold;
 }
+
 span.icon {
     display: inline-block;
     vertical-align: middle;
@@ -61,6 +64,7 @@ span.icon {
     height: 35px;
     border-right: #bb3f30 1px solid;
 }
+
 span.buttonText {
     display: inline-block;
     vertical-align: middle;
@@ -69,5 +73,5 @@ span.buttonText {
     font-size: 14px;
     font-weight: bold;
     /* Use the Roboto font that is loaded in the <head> */
-    font-family: 'Roboto',arial,sans-serif;
+    font-family: 'Roboto', arial, sans-serif;
 }

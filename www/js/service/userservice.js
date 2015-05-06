@@ -1,11 +1,11 @@
 
-app.service('UserService', function($state, $rootScope, $firebase, $firebaseArray, $window) {
+app.service('UserService', function($state, $rootScope, $firebase, $firebaseArray, $window, $firebaseObject) {
 
     self = this;
     this.url = 'https://timewasted.firebaseio.com/api/user';
 
     this.getAtividadesSemana = function() {
-        var id = getId();
+        var id = this.getId();
         var get = this.url + "/" + id + "/activity";
         return $firebaseArray(new Firebase(get));
     };
@@ -13,10 +13,10 @@ app.service('UserService', function($state, $rootScope, $firebase, $firebaseArra
     this.getAtividade = function(idAtividade) {
         var id = getId();
         var get = this.url + "/" + id + "/activity/" + idAtividade;
-        var atividade;
-        new Firebase(get).once('value', function(snap) {
-             atividade = snap.val();
-        });
+        var ref = new Firebase(get);
+        var atividade = $firebaseObject(ref);
+        console.log("AQUI");
+        console.log(atividade);
         return atividade;
     };
 
@@ -32,7 +32,7 @@ app.service('UserService', function($state, $rootScope, $firebase, $firebaseArra
         return _.isUndefined($window.sessionStorage.token);
     };
 
-    function getId() {
+    this.getId = function() {
         return $window.sessionStorage.token;
     };
 

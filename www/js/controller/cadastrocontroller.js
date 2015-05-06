@@ -112,7 +112,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
     this.end = undefined;
     this.priority = undefined;
     this.displayDay = true;
-    this.category = "lazer";
+    this.category = "Lazer";
 
     this.atividades = UserService.getAtividadesSemana();
 
