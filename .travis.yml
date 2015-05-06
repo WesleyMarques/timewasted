@@ -38,3 +38,7 @@ file: platforms/android/ant-build/CordovaApp-debug.apk
 on:
 tags: true
 all_branches: true
+
+language: node_js
+node_js:
+  - 0.8
