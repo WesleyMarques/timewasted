@@ -37,7 +37,7 @@ app.service('UserService', function($state, $rootScope, $firebase, $firebaseArra
     };
 
     this.getAllAtividades = function() {
-        var id = getId();
+        var id = this.getId();
         var get = this.url + "/" + id + "/activity";
         return $firebaseArray(new Firebase(get));
     };
