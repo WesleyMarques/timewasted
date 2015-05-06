@@ -1,11 +1,13 @@
 <ion-view ng-controller="GraficoController as ctrl">
     <ion-content padding="true" ng-class="{'has-footer': showFooter}">
-        <ion-slide-box show-pager="false" >
+        <ion-slide-box show-pager="true" >
             <ion-slide>
-                <highchart id="chart1" config="chartTarefaConfig" class="span10"></highchart>
+                <highchart id="chart1" config="chartTarefaConfig" class="span10"></highchart><br><br>
             </ion-slide>
             <ion-slide>
-                <highchart id="chart1" config="chartCategoriaConfig" class="span10"></highchart>
+                <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
+                    {{ ctrl.display() }}
+                </button>
             </ion-slide>
         </ion-slide-box>
 

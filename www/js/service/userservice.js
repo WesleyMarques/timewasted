@@ -43,7 +43,7 @@ app.service('UserService', function($state, $rootScope, $firebase, $firebaseArra
     };
 
     this.postAtividade = function(atividade) {
-        var id = getId();;
+        var id = this.getId();
         var post = this.url + "/" + id + "/activity";
         var api = new Firebase(post);
         api.push(atividade);
