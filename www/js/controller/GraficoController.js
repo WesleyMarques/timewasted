@@ -12,13 +12,9 @@ app.controller('GraficoController', function($scope, UserService) {
 
     atividades.$loaded().then(function (array) {
         array.forEach(function (entry) {
-                //console.log(entry);
-                console.log(json);
                 difTime = weeksAgo(new Date(entry.begin));
                 if (difTime < 3) {
                     timeUsed = Number(((new Date(entry.end) - new Date(entry.begin))/3600000).toFixed(2));
-                    console.log(timeUsed);
-                    //if(!json.hasOwnProperty(array[entry].name)){
                     if (difTime==2) {
                         json.push({name: entry.name, data: [timeUsed,0,0]});
                     }
@@ -42,10 +38,6 @@ app.controller('GraficoController', function($scope, UserService) {
 
             }
         );
-        //console.log(json);
-        /*console.log(array[0]);
-        var date = new Date();
-        console.log();*/
     });
 
     var diasAntes = function (dias) {
@@ -53,8 +45,6 @@ app.controller('GraficoController', function($scope, UserService) {
     };
 
     var weeksAgo = function (tempo) {
-        //console.log(new Date(tempo));
-        //console.log(diasAntes(14));
         if ((tempo <= diasAntes(14).getTime()) && (tempo > diasAntes(21).getTime())) {
             return 2;
         } else if (tempo <= diasAntes(7).getTime() && tempo > diasAntes(14).getTime()) {
@@ -68,6 +58,7 @@ app.controller('GraficoController', function($scope, UserService) {
     $scope.chartConfig = {
         options: {
             chart: {
+                marginRight:50,
                 type: 'bar'
             }
         },
