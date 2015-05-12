@@ -5,10 +5,7 @@
                 <highchart id="chart1" config="chartTarefaConfig" class="span10"></highchart><br><br>
             </ion-slide>
             <ion-slide>
-                <button class="button button-full button-assertive" ng-click="ctrl.changeDisplay()">
-                    {{ ctrl.display() }}
-                </button>
-                <highchart ng-if="ctrl.display()=='This week'" config="chartCategoriaSemanaCorrenteConfig" class="span10"></highchart><br><br>
+                <highchart id="chart2" config="chartCategoriaConfig" class="span10"></highchart><br><br>
             </ion-slide>
         </ion-slide-box>
 
