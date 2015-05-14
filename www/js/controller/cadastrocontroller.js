@@ -185,6 +185,7 @@ app.controller('CadastroController', function ($scope, $state, $stateParams, $io
         self.begin = undefined;
         self.end = undefined;
         self.priority = undefined;
+        $scope.imageUri = null;
     };
 
     this.verAtividade = function(index) {
